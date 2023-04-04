@@ -1,0 +1,21 @@
+{
+	"no_record": "No record found",
+	"no_data_found": "no_data_found",
+	"validation_error": "Validation Error",
+	"exception_error": "Exception Error",
+	"something_wrong": "Something Went Wrong",
+	"no_record_found": "no_record_found",
+	"bad_request": "Bad Request",
+	"no_file_found": "no_file_found",
+	"error": "error",
+	"inavlid Well_no and Date": "inavlid Well_no and Date",
+	"Date Mismatch": "Date Mismatch",
+	"Well Number Mismatch": "Well Number Mismatch",
+	"Dpr Date Exist": "Dpr Date Exist",
+	"Well Number Not Exist": "Well Number Not Exist",
+	"hole_size 14nmalready exists": "hole_size 14nmalready exists",
+	"hole_size 14nm already exists": "hole_size 14nm already exists",
+	"casing_type Test 2 already exists": "casing_type Test 2 already exists"
+	"casing_type Test 5 already exists": "casing_type Test 5 already exists"
+>>>>>>> a20c301e98e566a0b9439d15e727288d9e301ce5
+}

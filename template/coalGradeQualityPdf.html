@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>PDF</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .pdfHead {
+      margin-bottom: 15px;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .pdfHead .mainHead {
+      width: 100%;
+    }
+
+    .pdfHead .mainHead label {
+      font-size: 10px;
+      font-weight: 700;
+      min-width: 200px;
+      text-align: left;
+    }
+
+    .pdfHead .mainHead .labelValue {
+      font-size: 10px;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .pdfHead .mainHead table tr td {
+      line-height: 12px;
+    }
+
+    .pdfContent table tr th,
+    .pdfContent table tr td {
+      vertical-align: middle;
+      font-size: 9px;
+      text-align: center;
+    }
+
+    .pdfContent th.borderBottom,
+    .pdfContent td.borderBottom {
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .pdfContent th .midBorder,
+    .pdfContent td .midBorder {
+      border-left: 1px solid #dee2e6;
+      border-right: 1px solid #dee2e6;
+    }
+
+    .borderless tr td,
+    .borderless tr th {
+      border: 0;
+    }
+
+    .pdfFooter ol {
+      padding-left: 15px;
+    }
+
+    .pdfFooter ol li {
+      font-size: 10px;
+    }
+
+    .notarySign {
+      margin-top: 80px;
+    }
+
+    .notarySign p {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .break-page {
+      page-break-after: always;
+      page-break-inside: avoid;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="">
+    <div class="pdfWrapper">
+
+      {{#each data}}
+      <div class="break-page">
+        <div class="pdfHead">
+          <h4 class="heading">Coal Grade / Quality Report</h4>
+          <table class="mainHead" aria-labelledby="coalGrade">
+            <tr>
+              <th>
+                <table aria-labelledby="coalGradeContent">
+                  <tr>
+                    <th></th>
+                    <td><label>Lab Report No.</label></td>
+                    <td>
+                      <p class="labelValue">1234</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-labelledby="coalGradeContent">
+                  <tr>
+                    <th></th>
+                    <td><label>Name of the Coal company</label></td>
+                    <td>
+                      <p class="labelValue">{{this.name_of_sampling_agency}}</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-label="loading_side">
+                  <tr>
+                    <th></th>
+                    <td><label>Name of the Loading side</label></td>
+                    <td>
+                      <p class="labelValue">{{this.siding}}</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-label="customer">
+                  <tr>
+                    <th></th>
+                    <td> <label>Name of the Customer</label></td>
+                    <td>
+                      <p class="labelValue">{{this.buyer_name}}</p>
+                    </td>
+                  </tr>
+                </table>
+              </th>
+              <td style="float: right;">
+                <table aria-label="date">
+                  <tr>
+                    <th></th>
+                    <td><label>Date:</label></td>
+                    <td>
+                      <p class="labelValue">{{this.rr_or_do_date}}</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-label="dispatch">
+                  <tr>
+                    <th></th>
+                    <td><label>Mode Of Dispatch:</label></td>
+                    <td>
+                      <p class="labelValue">{{this.mode_of_dispatch}}</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-label="auction">
+                  <tr>
+                    <th></th>
+                    <td><label>Auction Type:</label></td>
+                    <td>
+                      <p class="labelValue">Special Forward E-auction</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-label="grade">
+                  <tr>
+                    <th></th>
+                    <td><label>Declared Grade:</label></td>
+                    <td>
+                      <p class="labelValue">{{this.declared_grade}}</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-label="humidity">
+                  <tr>
+                    <th></th>
+                    <td><label>Relative Humidity of Laboratory:</label></td>
+                    <td>
+                      <p class="labelValue">45%</p>
+                    </td>
+                  </tr>
+                </table>
+                <table aria-label="temperature">
+                  <tr>
+                    <th></th>
+                    <td><label>Temperature of Laboratory:</label></td>
+                    <td>
+                      <p class="labelValue">22°C</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="pdfContent">
+          <table class="table table-bordered " aria-label="tableContent">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Sample Id</th>
+                <th>Date of collection</th>
+                <th>Date of Preparation</th>
+                <th>Date of sample receiving at Laboratory</th>
+                <th>Date of Testing</th>
+                <th class="p-0">
+                  <table class="table borderless mb-0" aria-label="tableContent_value">
+                    <tr>
+                      <th scope="railway" colspan="3" class="text-center borderBottom">Railway Rake/MGR/Roads</th>
+                    </tr>
+                    <tr>
+                      <th scope="Quantity">Quantity (M.T)</th>
+                      <th scope="ddno" class="midBorder" style="width: 100px;">RR/DD No.</th>
+                      <th scope="ddDate">RR/DD Date</th>
+                    </tr>
+                  </table>
+                </th>
+                <th>Total Moisture%</th>
+                <th class="p-0">
+                  <table class="table borderless mb-0" aria-label="tableContent_value">
+                    <tr>
+                      <th scope="airdried" colspan="3" class="text-center borderBottom">&nbsp;<br />Air-dried basis
+                      </th>
+                    </tr>
+                    <tr>
+                      <th scope="moisture">Moisture%</th>
+                      <th scope="ash" class="midBorder">Ash%</th>
+                      <th scope="gcv">GCV(Kcal/Kg)</th>
+                    </tr>
+                  </table>
+                </th>
+                <th class="p-0">
+                  <table class="table borderless mb-0" aria-label="tableContent_value">
+                    <tr>
+                      <th scope="equilirabrated" colspan="3" class="text-center borderBottom">Equilirabrated Moisture
+                        basis<br />(60% RH &
+                        40°C)</th>
+                    </tr>
+                    <tr>
+                      <th scope="moisture">Moisture%</th>
+                      <th scope="ash" class="midBorder">Ash%</th>
+                      <th scope="gcv">GCV(Kcal/Kg)</th>
+                    </tr>
+                  </table>
+                </th>
+                <th>Analyzed Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{this.srNo}}</td>
+                <td>{{this.sample_id}}</td>
+                <td>{{this.date_of_collection}}</td>
+                <td>{{this.date_of_prepartaion}}</td>
+                <td>{{this.date_of_sample_receipt_in_lab}}</td>
+                <td>{{this.date_of_test_result_recieved}}</td>
+                <td class="p-0">
+                  <table class="table borderless mb-0" aria-label="tableContent_value">
+                    <tr>
+                      <th></th>
+                      <td style="width: 60px;">{{this.billed_qty}}</td>
+                      <td class="midBorder" style="width: 62px;">{{this.rr_or_do_number}}</td>
+                      <td>{{this.rr_or_do_date}}</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>{{this.third_party_total_moisture}}</td>
+                <td class="p-0">
+                  <table class="table borderless mb-0" aria-label="tableContent_value">
+                    <tr>
+                      <th></th>
+                      <td style="width: 70px;">{{this.third_party_on_air_dry_bases_moisture}}</td>
+                      <td class="midBorder" style="width: 45px;">{{this.third_party_on_air_dry_bases_ash}}</td>
+                      <td>{{this.third_party_on_air_dry_bases_gcv}}</td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="p-0">
+                  <table class="table borderless mb-0" aria-label="tableContent_value">
+                    <tr>
+                      <th></th>
+                      <td>{{this.third_party_on_em_bases_moisture}}</td>
+                      <td class="midBorder" style="width: 45px;">{{this.third_party_on_em_bases_ash}}</td>
+                      <td>{{this.third_party_on_em_bases_gcv}}</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>{{ this.third_party_analyzed_grade }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered w-25" aria-label="tableContent_value">
+            <tr>
+              <th></th>
+              <td><b>Total Quantity (M.T)</b></td>
+              <td>{{this.billed_qty}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      {{/each}}
+      <div class="pdfFooter">
+
+        <div>
+          <h6>Note</h6>
+          <ol type="i">
+            <li>Sample collected as per FSA</li>
+            <li>Sampling and processing done by Quality council of India(QCI) with the help of its
+              third-party agency.</li>
+            <li>Moisture and Ash determination has been done in accordance to BIS specification IS
+              1350(Part-I), 1984 Reaffirmed:2013</li>
+            <li>GCV Analysis has been done in accordance to BIS specification IS 1350(Part-II), 1970
+              Reaffirmed:2015</li>
+            <li>Total moisture determination has been done jointly by QCI with the help of its technical
+              service provider & NCL at NCL laboratory in accordance to BIS Specification, IS
+              1350(Part-I), 1984 Reaffirmed: 2017 </li>
+            <li>Testing performed at NABL accredited lab.</li>
+            <li>Quantity mentioned is a tentative in nature. The quantity is subject to monthly
+              reconciliation.</li>
+          </ol>
+        </div>
+        <div class="notarySign">
+          <img src="https://headsocial.com/images/ywlC5MFUzl3DM2zMtNtQ.png" style="width:100px" alt="notary_sign" />
+          <div>
+            <p>Mr. F.C Srivastava</p>
+            <p>Deputy Director</p>
+            <p>Account Division, QCI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
